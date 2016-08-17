@@ -1,0 +1,118 @@
+  <!DOCTYPE html>
+<html>
+<head>
+	<title>主动分发</title>
+	{% load staticfiles %}
+	{% include 'include/enable.html'%}
+</head>
+<body>
+  <div>
+    file_name:<input type="text" placeholder="file_name"  id="file_name" />
+    start_time:<input type="text" placeholder="start_time"  id="start_time" />
+    end_time:<input type="text" placeholder="end_time"  id="end_time" />
+    <input id="submit" type="submit" value="提交" />
+  </div>
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#submit").click(function () {
+            $.ajax({
+                    type: "GET",
+                    url: "getFileStatus?file_name=" + document.getElementById("file_name").value+ "&start_time=" + document.getElementById("start_time").value+ "&end_time="+ document.getElementById("end_time").value,
+                    datatype: "text",
+                    success: function (data) {
+                      document.getElementById('dd').innerHTML=data;
+                    },
+                    error: function (data) {
+                        alert ("failed");
+                    }
+                });
+        });
+    });
+  </script>
+
+        <form id="uploadForm" enctype="multipart/form-data" method="post">
+          <input id= "file" type="file" name="file" />
+          <br>
+          upload file:<input id ="param_list" type="button" value="submit" />
+        </form>
+  <div id="dd">
+  </div>
+<!-- <script type="text/javascript">
+      $(document).ready(function () {
+        $("#param_list").click(function(){
+          $.ajax({
+            url: 'uploadFiles',
+            type: 'POST',
+            cache: false,
+            data: new FormData($('#uploadForm')[0]),
+            processData: false,
+            contentType: false
+          }).done(function(res) {
+            alert("ok");
+          }).fail(function(res) {
+            alert("fail");
+        });
+      });
+    });
+</script>
+-->
+   
+    <!--
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $("#file_id").click(function () {
+              $.ajax({
+                      url: "uploadFiles",
+                      datatype: "text",
+                      success: function (data) {
+                        document.getElementById('dd').innerHTML=data;
+                      },
+                      error: function (data) {
+                          alert ("failed");
+                      }
+                  });
+          });
+      });
+    </script>
+    -->
+    <!--<input id="param_list" type="submit" value="提交" />-->
+    <script type="text/javascript">
+          $("#param_list").click(function () {
+              $.ajax({
+                url: 'uploadFiles',
+                type: 'POST',
+                cache: false,
+                data: new FormData($('#uploadForm')[0]),
+                processData: false,
+                contentType: false,
+                datatype: "json",
+                success: function (data) {
+                  alert("ok");
+                  for(var i = 0; i < data.length;i = i+3 ){
+                    $.ajax({
+                      url: "getFileStatus?file_name="+data[i] + "&start_time=" +data[i+1] + "&end_time=" + data[i+2],
+                      type: "GET",
+                      datatype: "text",
+                      success: function (data) {
+                        alert("ok");
+                        document.getElementById("dd").innerHTML += data;
+                      },
+                      error: function (data) {
+                        alert("ff");
+                      }
+                    });
+                  }
+                },
+                error: function(data) {
+                  alert("fail");
+                }   
+          });
+        });
+    </script>
+
+
+</body>
+</html>
+

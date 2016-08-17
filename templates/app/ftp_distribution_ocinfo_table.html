@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>stellar</title>
+        <meta name="description" content="video-on-demmand operation support system">
+        <meta name="natus">
+        {% load staticfiles %}
+        {% include 'include/enable.html' %}
+        <link href="{% static 'css/app/font-awesome.min.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <style>
+            table {
+                background-color : #FFFFFF;
+            }
+            thead {
+                background-color : #87CEEB;
+            }
+        </style>
+        <div id="id_nav">
+                <center><h1>{{ title }}</h1></center>
+                <center>{{ nav | safe }}</center>
+        </div>
+        <div id="id_info">
+            <table id="id_table" class="cell-border" cellspacing="3">
+                {{ table | safe }}
+            </table>
+            {{ script | safe }}
+        </div>
+
+        <script>
+            $("a.linker").click (function () {
+                window.location = this.name;
+            });
+        </script>
+    </body>
+</html>

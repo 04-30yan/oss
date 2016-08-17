@@ -1,0 +1,20 @@
+<div class="templatemo-top-nav-container">
+    <div class="row" align="center">
+        <nav class="templatemo-top-nav col-lg-12 col-md-12">
+            <ul class="text-uppercase">
+                {% if navigationTable %}
+                    {% for href, id, name, tagName in navigationTable %}
+                        <li class="inline-block-navigation-tabs">
+                            <a href="#{{ href }}"
+                            class="inline-block-navigation-tabs-href"
+                            name="{{ name }}" id="{{ id }}"
+                            onclick="setContent('{{ id }}', '{{ name }}')">
+                                {{ tagName }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>

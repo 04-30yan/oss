@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>VOD OSS Dashboard</title>
+        <meta name="description" content="video-on-demmand operation support system">
+        <meta name="natus" content="vod oss">
+    <!--
+    Visual Admin Template
+    http://www.templatemo.com/preview/templatemo_455_visual_admin
+    -->
+    {% load staticfiles %}
+    {% include 'include/enable.html' %}
+    <link href="{% static 'css/app/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'css/app/templatemo-style.css' %}" rel="stylesheet">
+
+    <!-- custom design -->
+    <link href="{% static 'css/app/my.css' %}" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'js/app/my.js' %}"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+    <body onload="restore()">
+        <div class="templatemo-flex-row">
+            <div class="templatemo-sidebar">
+                <header class="templatemo-site-header">
+                <div class="square"></div>
+                    <h1>VOD OSS</h1>
+                </header>
+
+            <div class="mobile-menu-icon">
+                <i class="fa fa-bars"></i>
+            </div>
+
+            <nav class="templatemo-left-nav">
+                <ul>
+                    <!-- Home Page -->
+                    <li>
+                        <a href="#" class="alive-left-super-tab platform" name="">
+                            <i class="fa fa-home fa-fw icon-chevron-right icon-margintop"></i>
+							主页
+                        </a>
+                    </li>
+                    <!-- film-television Platform -->
+                    <li id="id_ftp">
+                        <a href="#platform=ftp" class="left-super-tab alive-left-super-tab" name="ftp">
+                            <div class="platform">
+                                <i class="fa fa-database fa-fw icon-chevron-right icon-margintop"></i>
+                                影视平台
+                            </div>
+                        </a>
+                    </li>
+
+                    <div class="sub-dev" id="id_ftp_sub">
+                        <ul>
+                            <div class="service inlinediv">
+                                <li class="nav-li" id="id_ftp_service-scenario">
+                                    <a href="#platform=ftp&service=servicescenario" class="left-tab" name="ftp_servicescenario">
+                                        <i class="fa fa-institution fa-fw icon-chevron-right"></i>
+                                        业务概况
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="service inlinediv">
+                                <li class="nav-li" id="id_ftp_distribution">
+                                    <a href="#platform=ftp&service=distribution" class="left-tab" name="ftp_distribution">
+                                        <i class="fa fa-send fa-fw icon-chevron-right"></i>
+                                        分发
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="service inlinediv">
+                                <li class="nav-li" id="id_ftp_express">
+                                    <a href="#platform=ftp&service=express" class="left-tab" name="ftp_express">
+                                        <i class="fa fa-rocket fa-fw icon-chevron-right"></i>
+                                        直通车
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="service inlinediv">
+                                <li class="nav-li" id="id_ftp_cdn">
+                                    <a href="#platform=ftp&service=cdn" class="left-tab" name="ftp_cdn">
+                                        <i class="fa fa-download fa-fw icon-chevron-right"></i>
+                                        下载加速
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="service inlinediv">
+                                <li class="nav-li" id="id_ftp_sourcestation">
+                                    <a href="#platform=ftp&service=sourcestation" class="left-tab" name="ftp_sourcestation">
+                                        <i class="fa fa-sitemap fa-fw icon-chevron-right"></i>
+                                        源站
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <!-- UGC Platform -->
+                    <li id="id_ugc">
+                        <a href="#platform=ugc" class="left-super-tab alive-left-super-tab" name="ugc">
+                            <div class="platform">
+                                <i class="fa fa-database fa-fw icon-chevron-right icon-margintop"></i>
+                                UGC平台
+                            </div>
+                        </a>
+                    </li>
+
+                    <div class="sub-dev" id="id_ugc_sub">
+                        <ul>
+                            <div class="service inlinediv">
+                                <li class="nav-li" id="id_ugc_service-scenario">
+                                    <a href="#platform=ugc&service=servicescenario" class="left-tab" name="ugc_servicescenario">
+                                        <i class="fa fa-institution fa-fw icon-chevron-right"></i>
+                                        业务概况
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="service inlinediv">
+                                <li class="nav-li" id="id_ugc_distribution">
+                                    <a href="#platform=ugc&service=distribution" class="left-tab" name="ugc_distribution">
+                                        <i class="fa fa-send fa-fw icon-chevron-right"></i>
+                                        分发
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+        <!-- Main content -->
+        <div class="templatemo-content col-1 light-gray-bg">
+            <div id='id_main'></div>
+            <div id='id_content'></div>
+        </div>
+    </body>
+</html>

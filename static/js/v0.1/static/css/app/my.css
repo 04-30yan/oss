@@ -1,0 +1,27 @@
+.platform {
+    text-align: left;
+    font-size: 20px;
+    font-family: 微软雅黑;
+}
+
+.service {
+    font-family: 微软雅黑;
+    text-align: left;
+    background-color:
+}
+
+.alive-left-super-tab {
+    background: #18191b;
+    border-left: 8px solid #13895F;
+}
+
+.alive-left-tab {
+    background: #18191b;
+    border-left: 8px solid #13895F;
+}
+
+li.inline-block-navigation-tabs {
+    display: inline-block;
+    *display: inline;
+    *zoom:1;
+}

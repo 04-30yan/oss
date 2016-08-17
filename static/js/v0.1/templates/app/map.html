@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+        <meta name="description" content="home page">
+        <meta name="author" content="natuschen">
+        {% load staticfiles %}
+        <link href="{% static 'icon/favicon.ico' %}" rel="icon">
+
+        <title>
+            VOD OSS
+        </title>
+
+        <!-- Custom css-->
+        <!--<link href="{% static 'css/app/index.css' %}" rel="stylesheet">-->
+        <!-- Bootstrap core -->
+        {% include 'include/enable.html' %}
+    </head>
+
+    <body>
+        <div id="main" style="height:500px;border:1px solid #ccc;padding:10px;"></div>
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('main'));
+            myChart.on ('click', function(param) {
+                update (param.name);
+            })
+            function update (region) {
+                $.ajax({
+                    type: "GET",
+                    url: "getMapOptions?region=" + region,
+                    datatype: "json",
+                    success: function (data) {
+                        myChart.setOption (data);
+                    },
+                    error: function (data) {
+                        alert ("failed");
+                    }
+                });
+            }
+            update ("china");
+        </script>
+    </body>
+</html>

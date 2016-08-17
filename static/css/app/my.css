@@ -1,0 +1,67 @@
+.my-nav-1st {
+    text-align: left;
+    font-size: 20px;
+    font-family: 微软雅黑;
+}
+
+.my-nav-1st a {
+	color: #e9e9ea;
+	display: block;
+	padding: 30px;
+	transition: all 0.3s ease;
+}
+
+.my-nav-2nd {
+    text-align: left;
+    font-size: 16px;
+    font-family: 微软雅黑;
+}
+
+.my-nav-2nd a {
+	color: #e9e9ea;
+	display: block;
+	padding: 30px;
+	transition: all 0.3s ease;
+}
+
+.my-nav-1st-active {
+    background: #18191b;
+    border-left: 8px solid #419ae7;
+}
+
+.my-nav-2nd-active {
+    background: #18191b;
+    border-left: 8px solid #419ae7;
+}
+
+li.inline-block-navigation-tabs {
+    display: inline-block;
+    *display: inline;
+    *zoom:1;
+}
+
+.btn-path{
+    display: inline-block;
+   
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #419ae7;
+    color: #ffffff;
+    font-size: 1rem;
+}
+/* 提交按钮点击效果 */
+.btn-path:hover,
+.btn-path:focus{
+    background:#F1F1F1;
+    color:#09480f;
+    border: 1px solid #419ae7;
+    font-weight:bolder;
+}
+.btn-path:active{
+    outline:none;
+    box-shadow:inset 0 1px 2px #ff9900;
+}
+#PathDisplay{
+    margin-top: 2px;
+    height:26px;
+}

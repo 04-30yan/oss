@@ -1,0 +1,240 @@
+html, body {
+    padding: 0;
+    margin: 0 auto;
+	background-color: #F1F1F1;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 63.5%;
+
+}
+.header {
+    margin: 0 auto;
+}
+.form_one{
+    /*width:90rem;*/
+    height: auto;
+    width: 900px;
+    margin: 0 auto;
+   /* margin-left: 17rem;*/
+    margin-top:2rem;
+    /*font-size: 1.5rem;*/
+}
+.container-fluid{
+	width: 900px;
+	margin: 0 auto;
+}
+.form-group{
+	margin-bottom: 0px;
+}
+.form_file{
+    
+    height: 6rem;
+    /*margin: 3rem 0 0 21rem;*/
+    margin-left: 17rem;
+    margin-top:1rem;
+    font-size: 1.5rem;
+    
+}
+.upload_file{
+	padding-top:1rem;
+}
+.dotted{
+	margin-top: 4px;
+	border-bottom: 1px dotted #dcdc8c;
+}
+#table_show{
+	width: 96rem;
+    height: 5rem;
+    margin: 0 auto;
+    /*margin-left: 6rem;*/
+    font-size: 1rem;
+}
+
+
+
+.templatemo-content-widget.no-padding {	padding: 0; }
+.templatemo-content-widget {
+	border-radius: 10px;
+	padding: 30px;
+	position: relative;
+	margin: 10px;
+ 	box-shadow: 0px 0px 1px 1px rgba(161, 159, 159, 0.1);
+}
+.templatemo-content-widget { padding: 15px;	}
+.templatemo-user-table thead {
+	background-color: #419ae7;
+	color:white;
+}
+.panel-default>.panel-heading {
+	background-color: #39ADB4;
+	background-image: none;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	color: white;
+	padding: 15px;
+}
+.has-success .form-control:focus{
+	border-color: #419ae7;
+	box-shadow: 0px 0px 1px 1px rgba(161, 159, 159, 0.1);
+}
+.panel-default .fa-times {
+	top: 12px;
+	background-color: #419ae7;
+}
+.panel-default .fa-times:hover { background-color: #297B7F;	}
+.panel { border-radius: 10px; }
+.pagination-wrap {
+	margin-right: 10px;
+	text-align: right;
+
+
+}
+.pagination>li>a {
+	border-color: #E9E8E8;
+	color: #a6a6a6;
+	margin: 2px;
+	padding: 10px;
+}
+.pagination>li>a,
+.pagination>li:first-child>a,
+.pagination>li:last-child>a {
+	border-radius: 10px;
+}
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover {
+	background-color: #419ae7;
+	border-color: #E9E8E8;
+}
+.form-inline .form-control {
+	width:5.5rem;
+	height:28px;
+}
+
+thead {
+	display: table-header-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+.table { margin-bottom: 0; }
+.media { margin-top: 0; }
+.media-body { vertical-align: middle; }
+.badge {
+	background-color: #d6973d;
+	border-radius: 5px;
+	margin-left: 5px;
+	padding: 5px 10px;
+	vertical-align: top;
+}
+.Btn{
+	/*float: right;*/
+	display: inline-block;
+	width: 5.5rem;
+	height: 2.9rem;
+	margin-left: 5rem;
+	/*margin-top:2rem;*/
+	border: 1px solid;
+	border-radius: 5px;
+	background-color: #419ae7;
+	color: #ffffff;
+	font-size: 1rem;
+}
+.btn_padding{
+	margin-left: 29.15rem;
+}
+/* 提交按钮点击效果 */
+.Btn:hover,
+.Btn:focus{
+	background:#F1F1F1;
+	color:#09480f;
+	border: 1px solid #419ae7;
+	font-weight:bolder;
+}
+.Btn:active{
+	outline:none;
+	box-shadow:inset 0 1px 2px #ff9900;
+}
+/*firefox下按钮去除焦点线*/
+.Btn::-moz-focus-inner{
+	border:0;
+}
+.Btn_choose_file{
+	background-color: #419ae7;
+	border-color: #419ae7;
+	color: white;
+	width: 62px;
+	height: 28px;
+	
+}
+
+.btn_margin{
+	margin-top: 1.3rem;
+	border-color: #419ae7;
+	background-color: #419ae7;
+	color: white;
+}
+.btn_margin:hover,
+.btn_margin:focus{
+	background:#F1F1F1;
+	
+	border: 1px solid #419ae7;
+	font-weight:bolder;
+}
+.btn_margin:active{
+	outline:none;
+	box-shadow:inset 0 1px 2px #ff9900;
+}
+
+.btn_margin_success{
+	border-color: #419ae7;
+	background-color: #419ae7;
+	color: white;
+}
+.btn_margin_success:hover,
+.btn_margin_success:focus{
+	background:#F1F1F1;
+	
+	border: 1px solid #419ae7;
+	font-weight:bolder;
+}
+.btn_margin_success:active{
+	outline:none;
+	box-shadow:inset 0 1px 2px #ff9900;
+}
+.Btn_input{
+	background-color: #419ae7;
+	color: white;
+}
+.has-success .control-label{
+	color: #6b6868;
+	font-weight: 200;
+	font-size: 16px;
+	padding-left: 5px;
+}
+
+
+.has-success .date_width{
+	width:90px;
+	height:28px;
+}
+.has-success .date_padding{
+	padding-left: 2px;
+}
+.has-success .n2_padding{
+	padding-left: 50px;
+}
+/*.has-success .n1_padding{
+	padding-left: 90px;
+}*/
+.input-group .form-control:last-child{
+	width:111px;
+	height:28px;
+}
+.form-inline .n1{
+	width:172px;
+	height:28px;
+	margin-left: 16px;
+}
+#table_show{
+	margin-top: 6px;
+
+}

@@ -1,0 +1,53 @@
+.pgNav{
+/*    border: 1px solid #DADADA; */
+    padding:4px;
+    background: url("../../img/page_nav/page_bg.gif") repeat scroll 0 0 transparent;
+}
+.pgNav .op{
+    display:inline-block;
+    cursor:pointer;
+    padding:0 10px;
+    width:16px;
+    height:16px;
+}
+.pgNav .pgPrev {
+    background:url("../../img/page_nav/prev.gif") no-repeat scroll center center transparent;
+}
+.pgNav .pgPrevDisabled{
+    background: url("../../img/page_nav/prev_disabled.gif") no-repeat scroll center center transparent;
+    cursor: auto;
+}
+.pgNav .pgNext {
+    background: url("../../img/page_nav/next.gif") no-repeat scroll center center transparent;
+}
+.pgNav .pgNextDisabled {
+    background: url("../../img/page_nav/next_disabled.gif") no-repeat scroll center center transparent;
+    cursor: auto;
+}
+.pgNav .pgFirst {
+    background: url("../../img/page_nav/first.gif") no-repeat scroll center center transparent;
+}
+.pgNav .pgFirstDisabled {
+    background: url("../../img/page_nav/first_disabled.gif") no-repeat scroll center center transparent;
+    cursor: auto;
+}
+.pgNav .pgLast {
+    background: url("../../img/page_nav/last.gif") no-repeat scroll center center transparent;
+}
+.pgNav .pgLastDisabled{
+    background: url("../../img/page_nav/last_disabled.gif") no-repeat scroll center center transparent;
+    cursor: auto;
+}
+.pgNav .sep{
+    background: url("../../img/page_nav/separator.gif") no-repeat scroll center center transparent;
+    display: inline-block;
+    height: 16px;
+    width: 4px;
+}
+.pgNav .pgGo{
+    background: url("../../img/page_nav/nowait.gif") no-repeat scroll center center transparent;
+}
+.pgNav input{
+    width:30px;
+    text-align:center;
+}

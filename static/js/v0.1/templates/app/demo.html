@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DEMO</title>
+    {% load staticfiles %}
+    {% include 'include/enable.html' %}
+    <link rel="stylesheet" href="{% static 'css/app/demo.css' %}">
+</head>
+<body>
+    <div id="container" class="container">
+        <div class="formSubm">
+        <div class="formSubmCenter">
+        <div class="formSubmPositon">
+        <!-- 查询信息提交 -->
+        <form id="formSubm" method="get" >
+            <p>
+                <label for="n1">file_name:</label>
+                <input id="n1" class="n1" type="text" name="n1" />
+            </p>
+            <p>
+                <label for="">start_time:</label>
+                <input id="n2" class="n2" type="text" name="n2"  onclick="laydate({istime: false, format: 'YYYYMMDD'})" />
+            </p>
+            <p>
+                <label for="">end_time:</label>
+                <input id="n3" class="n3"  type="text" name="n3"  onclick="laydate({istime: false, format: 'YYYYMMDD'})" />
+            </p>
+            <p>
+                <input type="button" id="submBtn" class="submBtn" value="提交">
+            </p>
+        </form>
+        </div>
+        <!-- 提交文件查询 -->
+        <div  class="fileSubmPositon" >
+            <form id="uploadForm" enctype="multipart/form-data" method="post">
+                    <p><label><input id= "file"  type="file" name="file"></label>
+
+                    <input id ="param_list" type="button" class="Btn" value="提交文件"></p>
+
+            </form>
+        </div>
+        </div>
+        </div>
+
+        <!-- 查询内容展示 -->
+        <div id="imforShow" class="imforShow">
+            <table class= "imforTable" cellspacing="0" cellpadding="0">
+
+
+            </table>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+    <script src="{% static 'js/app/demo.js' %}"></script>
+    <script src="{% static 'js/app/laydate.js' %}"></script>
+</body>
+</html>

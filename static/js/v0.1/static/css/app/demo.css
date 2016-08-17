@@ -1,0 +1,260 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	background-color: #F1F1F1;
+	font-family: "微软雅黑";
+}
+
+.container {
+	margin: 0 auto;
+	/*margin-top: 50px;*/
+	margin: 50px 20px 0 20px;
+	/*width: 100%;*/
+	/*height: 500px;*/
+	/*border: 1px solid green;*/
+	/*background-color: #ffffff;*/
+	/*border:1px solid #CBCBCB;*/
+	/*border-radius:2px*/
+	/*box-shadow: 0 -5px 5px -3px #cccccc;*/
+}
+
+
+/* 提交表单 */
+.formSubm {
+	width: 960px;
+	height: 100px;
+	/*text-align: center;*/
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;
+	border-bottom: 1px dotted #dcdc8c;
+}
+.formSubmCenter{
+	width:900px;
+	height:57px;
+	margin:0 auto;
+}
+.formSubmPosition{
+	width:770px;
+	height:50px;
+	margin:0 0 0 0;
+}
+.formSubm p {
+	float: left;
+	/*width: 800px;*/
+	height: 40px;
+	margin-left: 13px;
+	color: #13895F;
+}
+
+.formSubm label {
+	font-size: 18px;
+	color: #13895F;
+}
+
+.n1{
+	width: 200px;
+	height: 20px;
+	border:1px solid #13895F;
+	border-radius: 5px;
+	box-shadow:inset 1px 1px 5px  #C4E8DA;
+}
+.n2 {
+	width: 80px;
+	height: 20px;
+	border:1px solid #13895F;
+	border-radius: 5px;
+	box-shadow:inset 1px 1px 5px  #C4E8DA;
+}
+.n3 {
+	width: 80px;
+	height: 20px;
+	border:1px solid #13895F;
+	border-radius: 5px;
+	box-shadow:inset 1px 1px 5px  #C4E8DA;
+}
+.n1:focus {
+	box-shadow: 0 -1px 3px #99D9BC;
+	border: 1px solid #13895F;
+	border-radius: 5px;
+	outline:none;
+}
+.n1::-webkit-input-placeholder,
+.n1:-moz-placeholder,
+.n1:-ms-input-placeholder{
+	color:#cccccc;
+	font-weight:normal;
+}
+.n2:focus {
+	box-shadow: 0 -1px 3px #99D9BC;
+	border: 1px solid #13895F;
+	border-radius: 5px;
+	outline:none;
+}
+.n1::-webkit-input-placeholder,
+.n1:-moz-placeholder,
+.n1:-ms-input-placeholder{
+	color:#cccccc;
+	font-weight:normal;
+}
+.n3:focus {
+	box-shadow: 0 -1px 3px #99D9BC;
+	border: 1px solid #13895F;
+	border-radius: 5px;
+	outline:none;
+}
+.n1::-webkit-input-placeholder,
+.n1:-moz-placeholder,
+.n1:-ms-input-placeholder{
+	color:#cccccc;
+	font-weight:normal;
+}
+.submBtn {
+	display: inline-block;
+	width: 50px;
+	height: 25px;
+	margin-left: 15px;
+	margin-top:2px;
+	border: 1px solid;
+	border-radius: 5px;
+	background-color: #13895F;
+	color: #ffffff;
+	font-size: 15px;
+}
+/* 提交按钮点击效果 */
+.submBtn:hover,
+.submBtn:focus{
+	background:#ffd500;
+	color:#09480f;
+	border: 1px solid #ffd500;
+	font-weight:bolder;
+}
+.submBtn:active{
+	outline:none;
+	box-shadow:inset 0 1px 2px #ff9900;
+}
+/*firefox下按钮去除焦点线*/
+.submBtn::-moz-focus-inner{
+	border:0;
+}
+
+/* 提交文件 */
+.fileSubmPosition{
+	width:1000px;
+	margin:13px 2px 0 0;
+	padding:0;
+}
+
+.Btn{
+	float: right;
+	display: inline-block;
+	width: 75px;
+	height: 28px;
+	margin:2px 0 0 325px;
+	border: 1px solid;
+	border-radius: 5px;
+	background-color: #13895F;
+	color: #ffffff;
+	font-size: 15px;
+}
+/* 提交按钮点击效果 */
+.Btn:hover,
+.Btn:focus{
+	background:#ffd500;
+	color:#09480f;
+	border: 1px solid #ffd500;
+	font-weight:bolder;
+}
+.Btn:active{
+	outline:none;
+	box-shadow:inset 0 1px 2px #ff9900;
+}
+/*firefox下按钮去除焦点线*/
+.Btn::-moz-focus-inner{
+	border:0;
+}
+/* 展示信息 */
+.imforShow {
+	padding:10px 0 10px 0;
+	width: 960px;
+	margin:0 auto;
+
+	/*overflow: hidden;*/
+}
+
+.imforTable {
+	padding: 0;
+	margin:0 auto;
+	width:960px;
+	/*background-color: #f5f5f5;*/
+	/*float: left;*/
+	/*border: 1px solid #f0f0c8;*/
+}
+
+tr, td, th {
+	padding: 0;
+	margin: 0;
+	border: 1px solid #13895F;
+}
+.imforTable tr{
+	text-align:center;
+}
+.l_table{
+	margin: 0 auto;
+}
+.imforTable th {
+	padding: 3px 7px;
+	margin: 0;
+	border: 1px solid #13895F;
+	text-align: center;
+	/*background-color:#60C99A;
+	color: #FFFFFF;*/
+	font-size:15px;
+}
+
+.imforTable td {
+	padding: 3px 7px;
+	margin: 0;
+
+
+}
+
+.table_tr {
+	background-color: #60C99A;
+	color: #FFFFFF;
+}
+
+
+
+.y_table {
+	position: absolute;
+	right: 0;
+	top: 56px;
+	display: none;
+	z-index: 100;
+}
+
+.table_1 {
+	width: 485px;
+	background-color: #F1F1F1;
+}
+
+.table_2 {
+	width: 830px;
+	background-color: #F1F1F1;
+}
+
+.imforShow tr > td {
+	position: relative;
+}
+
+.failBtn, .detaBtn {
+	display: inline-block;
+	/*text-decoration: none;*/
+	color: #788c14;
+}
+
+/* 清除浮动 */
+.clear {
+	clear: both;
+}

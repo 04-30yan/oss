@@ -1,0 +1,18 @@
+<div class="templatemo-top-nav-container">
+    <div class="row" align="center">
+        <nav class="templatemo-top-nav col-lg-12 col-md-12">
+            <ul>
+                {% if nav%}
+                    {% for name, href in nav %}
+                        <li class="inline-block-navigation-tabs">
+                            <a href="javascript:void(0)"
+                            onclick="setContent('{{ href }}')">
+                                {{ name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>

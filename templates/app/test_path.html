@@ -1,0 +1,11 @@
+<font size="3">当前位置:</font>
+{% if mynav1st_id %}
+    >> <font size="3" color="#419ae7"><a onclick="onMyNav1stClick ('{{ mynav1st_id}}', '{{ mynav1st_realname }}')">
+        {{ mynav1st_name }}
+    </a></font>
+{% endif %}
+{% if mynav2nd_id %}
+    >> <font size="3" color="#419ae7"><a onclick="onMyNav2ndClick ('{{ mynav2nd_id}}', '{{ mynav2nd_realname }}')">
+        {{ mynav2nd_name }}
+    </a></font>
+{% endif %}

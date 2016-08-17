@@ -1,0 +1,133 @@
+/***************** first.htm begin *******************/
+#site{font-family:"宋体";font-size:16px;font-weight:bold;text-align:center;}
+/*.tabtext{font-family:"宋体";font-size:12px;font-weight:bold;text-align:center;}
+#tab-head{background:yellowgreen;}
+#tabs{border:solid 1px silver}
+.dli{font-family:"宋体";font-size:12px;font-weight:bold;background:;}
+ */
+.center{text-align:center;}
+.pageFooter {color: #1c3e7f;font-family: "宋体", Tahoma;font-size: 12px;line-height: 16px;text-align: center;/*font-family: Courier, "Courier New"; */}
+.pageCopyRight{font-size:14px;font-family: Courier, "Courier New", monospace}
+.foottext{font-size:9px;color:red;}
+
+.range{border:solid 1px #759CB9;padding:1px;width:100%}
+.rangetitle{background-color: #E4ECF7; line-height:20px;padding:1px;width:100%;text-align:left}
+/*.rangetitle{background-color: #759CB9; line-height:18px;padding-bottom:5px;width:100%}*/
+.rangetext{font-family:"宋体";font-size:14px;font-weight:;}
+.paddingtop{margin-top:8px;}
+.labelclick {text-decoration:underline;cursor:hand;color:#264F85}
+.labelclick2 {text-decoration:underline;cursor:hand;color:gray}
+.clickable {cursor:hand;}
+.future {color:silver}
+.nature {background-color: honeydew;}
+.nnature {margin-left: 0px; padding-left:0px;background-color:gray}
+.tabcheck {font-family:"宋体";font-size:12px}
+.tabuncheck {font-family:"宋体";font-size:12px;text-decoration:underline;cursor:hand}
+
+.SpryHiddenRegion {display:none}
+.Bg_FormContentWh {
+	background-color: #FFFFFF;
+	color: #333333;
+	font-family: "宋体", Tahoma;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+}
+
+.Bg_FormContentWh1 {
+	background-color: #FFFFFF;
+	color: #333333;
+	font-family: "宋体", Tahoma;
+	font-size: 12px;
+    font-weight:bold;
+	line-height: 16px;
+	text-align: left;
+}
+.Bg_FormTitle {
+	background-color: #E4ECF7;
+	font-size: 12px;
+	color: #075387;
+	font-weight: bold;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	line-height: 30px;
+}
+.ui-spry-table {
+    table-layout:fixed; 
+    background-color:#94caf8;
+    width:100%;
+}
+.ui-spry-trh{
+    text-align:center;
+    white-space: nowrap; 
+    font-weight:bold;
+    font-size:12px;
+}
+
+.ui-spry-trd{
+    text-align:center;
+    white-space: nowrap; 
+    font-size:12px;
+}
+.ui-spry-trtitle{
+    background-color:#C3D9FF;
+    font-family: "宋体", Tahoma; 
+    color:#3E576F;
+    line-height:30px;
+}
+.ui-spry-trwhite{
+    background-color:#ffffff;
+    font-family: "宋体", Tahoma; 
+    line-height:22px;
+}
+
+/***************** first.htm end *******************/
+
+/***************** mainres.htm begin *******************/
+.showborder{border:1px solid #759CB9}
+.labelhighlight{color:blue}
+.labelhighlight2{color:red}
+#mapid{border-right:0px solid #759CB9}
+.optionlabel{font-family:"宋体";font-size:12px;}
+#divout{border:1px 0px 1px 0px solid #759CB9;}
+#sumdiv{clear:;margin-top:10px}
+.windowdiv{border:1px solid #759CB9;margin:2px 2px 2px 2px;padding:1px}
+.window_title1{padding-left:2px;text-align:left;line-height:22px;background-color: #759CB9;font-family: "宋体", Tahoma;font-size:14px;}
+/*.window_title2{line-height:20px;background-color: #E4ECF7;font-family: "宋体", Tahoma;font-size:12px;}*/
+.window_title2{line-height:20px;}
+.window_thtd{padding:1px;background-color:#E4ECF7;font-family: "宋体", Tahoma;font-size:12px;}
+.window_tbodytd{padding:1px;background-color:white;font-family: "宋体", Tahoma;font-size:12px;}
+.clickdate{text-decoration:underline;cursor:hand;color:#264F85;font-family:"宋体";font-size:10px;}
+.clickdate{text-decoration:underline;cursor:hand;color:#264F85;font-family:"宋体";font-size:10px;}
+.datecheck {font-family:"宋体";font-size:10px;color:black}
+.dateuncheck {font-family:"宋体";font-size:10px;color:blue;text-decoration:underline;cursor:hand}
+.occheck {font-family:"宋体";font-size:12px;color:gray;font-weight:bold}
+.ocuncheck {font-family:"宋体";font-size:12px;color:#264F85;text-decoration:underline;cursor:hand}
+.border3d{border-top:5px outset #f3f5e9;border-left:3px outset #f3f5e9;border-right:3px inset #f3f5e9;border-bottom:4px inset #f3f5e9}
+.floatr{float:right}
+/***************** mainres.htm end *******************/
+
+/***************** oc_create.htm begin *******************/
+.labelfont{font-family:"宋体";font-size:12px;}
+.Bg_FormContentWhSM {
+	background-color: #f3f5e9;
+	color: #333333;
+	font-family: "宋体", Tahoma;
+	font-size: 12px;
+	line-height: 16px;
+	text-align: left;
+}
+
+.Bg_FormContentWhS1 {
+	background-color: #f3f5e9;
+    padding:1px;
+	color: #333333;
+	font-family: "宋体", Tahoma;
+	font-size: 12px;
+    font-weight:bold;
+	line-height: 16px;
+	text-align: left;
+}
+/***************** oc_create.htm end *******************/

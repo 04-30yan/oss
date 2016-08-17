@@ -1,0 +1,68 @@
+from django.shortcuts import render
+from django.http import HttpResponse, Http404
+from django.template import RequestContext, loader
+import json
+
+# Create your views here.
+
+def home (request):
+    template = loader.get_template ("app/index.html")
+    MODULES = ["Home", "Dispatch", "Allocate", "Download"]
+    contexts = {"MODULES" : MODULES }
+    return HttpResponse (template.render (contexts))
+
+def index (request):
+    template = loader.get_template ("app/index1.html")
+    return HttpResponse (template.render ())
+
+def login (request):
+    template = loader.get_template ("app/login.html")
+    return HttpResponse (template.render ())
+
+def data_visualization (request):
+    template = loader.get_template ("app/data-visualization.html")
+    return HttpResponse (template.render ())
+
+def manage_users (request):
+    template = loader.get_template ("app/manage-users.html")
+    return HttpResponse (template.render ())
+
+def maps (request):
+    template = loader.get_template ("app/maps.html")
+    return HttpResponse (template.render ())
+
+def preferences (request):
+    template = loader.get_template ("app/preferences.html")
+    return HttpResponse (template.render ())
+
+
+def map (request):
+    template = loader.get_template ("app/map.html")
+    return HttpResponse (template.render ())
+
+def stellar (request):
+    template = loader.get_template ("app/stellar.html")
+    return HttpResponse (template.render ())
+
+def options (request) :
+    options = {}
+    options['title'] = {"text":"test"}
+    options['tooltip'] = {}
+    options['legend'] = {"data":['sale']}
+    options['xAxis'] = {'data':["1", "2", "3", "4", "5", "6"]}
+    options['yAxis'] = {}
+    options['series'] = [{'name':"sales", "type":"bar","data":[1, 2, 3, 4, 5, 6]}]
+    return HttpResponse (json.dumps (options), content_type="application/json")
+
+def mapOptions (request):
+    region = request.GET.get ("region", "china");
+    options = {}
+    options['tooltip'] = {"triggle":"item", "formatter":"{b}"}
+    options['series'] = [{"type":"map", "mapType":region, "selectedMode":"multiple", "label":{"normal":{"show":"true"}, "emphasis":{"show":"true"}}}]
+    return HttpResponse (json.dumps (options), content_type="application/json")
+
+def getMain (request) :
+    subject =request.GET.get ("s");
+    navigationTable = [("#1", "active", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"), ("#2", "", "tab2"), ("#3", "", "tab3")]
+    contexts = {"navigationTable" : navigationTable}
+    return HttpResponse (loader.get_template("app/navigationTabs.html").render(contexts))

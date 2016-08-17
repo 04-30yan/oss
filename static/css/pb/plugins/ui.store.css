@@ -1,0 +1,22 @@
+/* base */
+.ui-store-float-left{
+	display:block;
+	float:left;
+}
+.ui-store-cursor-pointer{
+        cursor:pointer;
+}
+/* datepicker */
+.ui-store-datepicker{
+}
+.ui-store-datepicker .ui-store-datepicker-content{
+	width:100px;
+	height:14px;
+	text-align:center;
+	float:left;
+}
+.ui-store-datepicker .ui-store-datepicker-controller{
+        cursor:pointer;
+	display:block;
+	float:left;
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <title></title>
+    {% load staticfiles %}
+    {% include 'include/enable.html' %}
+    
+    <link href="{% static 'css/app/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app/templatemo-style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/app/test.css' %}">
+  
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="form_one form-inline has-success">
+	            <label class="n1_padding control-label">文件名/VID:</label>
+	          	<input type="text" id="id_ftp_distribution_filename" class="n1 form-control input-small" >
+	      
+	            <label class="n2_padding control-label" for="inputWithSuccess"> 查询日期:</label>
+	          	<input type="text" id="id_ftp_distribution_date_1" class="date_width form-control"  onclick="laydate({istime: false, format: 'YYYYMMDD'})">
+	       
+	            <label class="date_padding control-label" for="inputWithSuccess">-</label>
+	          	<input type="text" id="id_ftp_distribution_date_2" class="date_width form-control"  onclick="laydate({istime: false, format: 'YYYYMMDD'})" >
+	          	
+	            <input type="button" id="id_ftp_distribution_date_onefile" class="Btn btn form-control" value="查询">
+	           
+	            <label class="control-label">
+	            	<a id="file_check" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" style='font-size: 13px;'>文件列表批量查询</a>
+	            </label>
+	          
+	            
+	      
+	            <div id="collapseTwo" class="panel-collapse collapse upload_file">
+	        		<form id="uploadForm" enctype="multipart/form-data" method="post">
+	            	
+	                  	<label class="n1_padding control-label">上传文件列表:</label>
+	                    <input type="file" name="file" id="file-input" class="filestyle" data-buttonName="Btn_choose_file" data-buttonBefore="true" data-icon="false" multiple />
+	               
+	                    <label class="n2_padding control-label" for="inputWithSuccess"> 查询日期:</label>
+	          	        <input type="text" id="id_ftp_distribution_date_3" class="date_width form-control"  onclick="laydate({istime: false, format: 'YYYYMMDD'})">
+	       
+	                   <label class="date_padding control-label" for="inputWithSuccess">-</label>
+	          	       <input type="text" id="id_ftp_distribution_date_4" class="date_width form-control"  onclick="laydate({istime: false, format: 'YYYYMMDD'})" >	
+	          	              	
+	                   <input id ="param_list" type="button" class="Btn btn form-control" value="提交文件">
+	                 
+	        		</form> 	
+	        	</div>
+		    </div>
+		</div>
+	 
+        <div class="dotted">
+        </div>
+	   
+          
+        <!--table show data all -->
+        <div id="table_show" class="templatemo-content-widget no-padding">
+	        <div id="table_show_all" class="panel panel-default table-responsive"></div>
+	        <div class="pagination-wrap"><ul class="pagination" id="pagination1"></ul></div>
+        </div>
+        <div class='container'>
+			<!-- 按钮触发模态框 
+ 			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#fail_list_modal">
+   			开始演示模态框
+ 			</button>
+ 			-->
+ 
+ 			<!-- 模态框（Modal） -->
+ 			<!--fail_detail_modal -->
+ 			<div class="modal fade" id="fail_detail_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_1" aria-hidden="true">
+    			<div class="modal-dialog">
+       				<div class="modal-content">
+	          			<div class="modal-header">
+	             			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+	                   			&times;
+	             			</button>
+	             			<h4 class="modal-title" id="myModalLabel_1">
+	                			失败列表
+	             			</h4>
+	          			</div>
+	          			<div class="modal-body">
+		            		<!-- table -->
+		            		<div class="templatemo-content-widget no-padding">
+		            		<div class="panel panel-default table-responsive">
+					            <table class="table table-condensed table-striped table-bordered templatemo-user-table" rowspan=$rowspan style='vertical-align:middle;text-align:center;'>
+					            <thead>
+					              <tr>
+					               
+					                <td>地区</td>
+					                <td>错误原因</td>
+					                <td>机房ID</td>
+					                <td>机房IP</td>
+					         
+					              </tr>
+					            </thead>
+					            <tbody id="fail_detail_show"></tbody>
+					            </table>
+		        			</div>
+	        				</div>
+        				</div>
+		      			<div class="modal-footer">
+		         			<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+		        			</button>
+		      			</div>
+      				</div>
+      			</div>
+          	</div>
+
+          	<!-- success_1_detail_modal -->
+          	<div class="modal fade" id="success_1_detail_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_2" aria-hidden="true">
+    			<div class="modal-dialog">
+       				<div class="modal-content">
+	          			<div class="modal-header">
+	             			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+	                   			&times;
+	             			</button>
+	             			<h4 class="modal-title" id="myModalLabel_2">
+	                			一类机房分发时间
+	             			</h4>
+	          			</div>
+	          			<div class="modal-body">
+		            		<!-- table -->
+		            		<div id="success_1_detail_show"></div>
+        				</div>
+		      			<div class="modal-footer">
+		         			<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+		        			</button>
+		      			</div>
+      				</div>
+      			</div>
+          	</div>
+          	<!--success_2_detail_modal  -->
+          	<div class="modal fade" id="success_2_detail_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_3" aria-hidden="true">
+    			<div class="modal-dialog">
+       				<div class="modal-content">
+	          			<div class="modal-header">
+	             			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+	                   			&times;
+	             			</button>
+	             			<h4 class="modal-title" id="myModalLabel_3">
+	                			二类机房分发时间
+	             			</h4>
+	          			</div>
+	          			<div class="modal-body">
+		            		<!-- table -->
+		            		<div id="success_2_detail_show"></div>
+        				</div>
+		      			<div class="modal-footer">
+		         			<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+		        			</button>
+		      			</div>
+      				</div>
+      			</div>
+          	</div>
+
+          	<!--file_detail_modal -->
+          	<div class="modal fade" id="file_detail_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_4" aria-hidden="true">
+    			<div class="modal-dialog">
+       				<div class="modal-content">
+	          			<div class="modal-header">
+	             			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+	                   			&times;
+	             			</button>
+	             			<h4 class="modal-title" id="myModalLabel_4">
+	                			文件详情
+	             			</h4>
+	          			</div>
+	          			<div class="modal-body">
+		            		<!-- table -->
+		            		
+		            		<div id="file_detail_show"></div>
+
+        				</div>
+		      			<div class="modal-footer">
+		         			<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+		        			</button>
+		      			</div>
+      				</div>
+      			</div>
+          	</div>
+                       
+        </div>
+
+
+		
+    	<script type="text/javascript" src="{% static 'js/app/laydate.js' %}"></script>
+    	<script type="text/javascript" src="{% static 'js/app/bootstrap-filestyle.min.js' %}"></script> 
+    	<script type="text/javascript" src="{% static 'js/app/templatemo-script.js' %}"></script> 
+ 
+    	<script type="text/javascript" src="{% static 'js/jquery.min.js'%}"></script>
+ 
+    	<script type="text/javascript" src="{% static 'js/app/jqPaginator.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/app/jquery.tablesorter.js'%}"></script>
+        <script type="text/javascript" src="{% static 'js/app/test.js' %}"></script>
+	</body>
+</html>

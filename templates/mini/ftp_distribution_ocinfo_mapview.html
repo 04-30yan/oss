@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ftp_distribution_ocinfo_mapview</title>
+        <meta name="natus">
+
+
+        {% load staticfiles %}
+        {% include 'include/enable.html' %}
+        <link href="{% static 'css/app/font-awesome.min.css' %}" rel="stylesheet">
+        <script type="text/javascript" src="{% static 'js/mini/ftp_distribution_ocinfo_mapview.js' %}"></script>
+    </head>
+    </head>
+    <body>
+        <div id="map"></div>
+        <div id="sidebar-nav">
+            <ul class="nav nav-tabs nav-stacked">
+                {% if nav %}
+                    {% for k,vlist in nav.items %}
+                        <li class="nav-li" id="{{ k | safe  }}">
+                            <i class="icon-chevron-right icon-margintop"></i>
+                            <a href="javascript:void(0)">{{ k | safe  }}</a>
+                        </li>
+                        <div class="sub-dev" id="sub_{{ k | safe  }}" style="display:none">
+                            <ul class="nav nav-pills nav-stacked">
+                                {% for v in vlist %}
+                                    <li class="nav-li" id="javaPrograming" name="javaPrograming">
+                                        <i class="icon-chevron-right"></i>{{ v | safe  }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        <script type="text/javascript">
+            $("#map").css({
+                "position" : "absolute",
+                "margin-top" : "0",
+                "margin-left" : "0",
+                "width" : $(window).width() / 5.0 * 4,
+                "height": $(window).height()
+            });
+            $("#sidebar-nav").css({
+                "position" : "absolute",
+                "margin-top" : "0",
+                "margin-left" : $(window).width() / 5.0 * 4,
+                "width" : $(window).width() / 5,
+                "height": $(window).height()
+            });
+            var geoCoordMap = {{ geoCoordMap | safe }};
+            var series = [];
+            var priOCs = {{ priOCs | safe }};
+            var resOCs = {{ resOCs | safe }};
+            var myChart = echarts.init(document.getElementById('map'));
+            var legendData = {{ legendData | safe }};
+
+            resOCs.forEach(function (item, i) {
+                series.push(
+                {
+                    name: legendData[i],
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    symbolSize: 5,
+                    itemStyle: {
+                        normal: {
+                            color: "#a6c84c"
+                        }
+                    },
+                    data: item[1].map(function (dataItem) {
+                        return {
+                            name: dataItem.name,
+                            value: geoCoordMap[dataItem.name].concat([dataItem.value])
+                        };
+                    })
+                });
+            });
+
+            priOCs.forEach(function (item, i) {
+                series.push(
+                {
+                    name: legendData[i],
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'top',
+                            formatter: '{b}'
+                        }
+                    },
+                    symbolSize: 10,
+                    itemStyle: {
+                        normal: {
+                            color: "#FF0000"
+                        }
+                    },
+                    data: item[1].map(function (dataItem) {
+                        return {
+                            name: dataItem.name,
+                            value: geoCoordMap[dataItem.name].concat([dataItem.value])
+                        };
+                    })
+                });
+            });
+
+            var option = {
+                backgroundColor: '#404a59',
+                title : {
+                    text: '各机组OC分布',
+                    left: 'center',
+                    textStyle : {
+                        color: '#fff'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function (params) {
+                        return "OC名称 : " + params.name + " 权值 : " + params.value[2];
+                    }
+                },
+                legend: {
+                    //orient: 'vertical',
+                    top: 'bottom',
+                    left: 'right',
+                    data: legendData,
+                    textStyle: {
+                        color: '#fff',
+                        fontSize : 8
+                    },
+                    selectedMode: "single",
+                },
+                geo: {
+                    map: 'china',
+                    label: {
+                        emphasis: {
+                            show: false
+                        }
+                    },
+                    roam: true,
+                    itemStyle: {
+                        normal: {
+                            areaColor: '#323c48',
+                            borderColor: '#404a59'
+                        },
+                        emphasis: {
+                            areaColor: '#2a333d'
+                        }
+                    }
+                },
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: false
+                    }
+                },
+                toolbox: {
+                    show: true,
+                    orient: 'vertical',
+                    left: 'left',
+                    top: 'center',
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                series: series
+            };
+            myChart.setOption(option);
+
+            myChart.on("legendselected", function(params) {
+                onNavClick(params.name);
+            });
+        </script>
+    </body>
+</html>

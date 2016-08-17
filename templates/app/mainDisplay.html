@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta http-equiv="content-type" content="text/html charset=utf-8" />
+    <title>
+        点播业务组业务架构
+    </title>
+    <style>
+        span.level1st{
+            font-size:20px;
+        }
+        span.level2nd{
+            font-size:16px;
+        }
+        span.level3rd{
+            font-size:14px;
+        }
+        div#body_left {
+            background-color:#F1F1F1;
+        }
+    </style>
+    {% include 'include/static2nd.html' %}
+    <body>
+        <!-- topmost nav -->
+        <div class="store-ui-base-wrapper">
+            <div class="store-ui-sub-base-menu-holder">
+                <!-- store header begin -->
+                <!-- store header end -->
+            </div>
+        <div class="store-ui-base-bodier">
+            <!-- content begin -->
+           <div id="body_left">
+               <div class="menutree store-ui-helper-clearfix">
+                   <ul>
+                       <li class="open">
+                            <span class="level1st">
+                                <i class="fa fa-home fa-1g"></i>点播业务
+                            </span>
+                            <ul>
+		                        <li class="open">
+                                    <span class="level2nd">
+                                        <i class="fa fa-desktop fa-1g"></i>
+                                        影视平台
+                                    </span>
+		                            <ul>
+                                        <li id="id_ftp_scenario"  url='ftp_scenario'>
+                        				    <span class="level3rd"><a href="">
+                                                <i class="fa fa-institution fa-1g"></i>
+                                                业务概况
+                                            </a></span>
+                        			    </li>
+                                        <li id="id_ftp_express"  url='ftp_express'>
+                        				    <span class="level3rd"><a href="">
+                                                <i class="fa fa-rocket fa-1g"></i>
+                                                直通车
+                                            </a></span>
+                        			    </li>
+                                        <li id="id_ftp_cdn"  url='ftp_cdn'>
+                        				    <span class="level3rd"><a href="">
+                                                <i class="fa fa-download fa-1g"></i>
+                                                下载加速
+                                            </a></span>
+                        			    </li>
+                                        <li id="id_ftp_distribution"  url='ftp_distribution'>
+                                            <span class="level3rd">
+                                                <i class="fa fa-sitemap fa-1g"></i>
+                                                分发
+                                            </span></span>
+                        				    <ul>
+                                                <li id="id_ftp_distribution_302"  url='proxy?url=ftp_distribution_upload'>
+                                				    <span><a href="">
+                                                        上传分发
+                                                    </a></span>
+                                			    </li>
+                                            </ul>
+                        			    </li>
+                                        <li id="id_ftp_sourcestation"  url='ftp_sourcestation'>
+                        				    <span class="level3rd"><a href="">
+                                                <i class="fa fa-database fa-1g"></i>
+                                                源站
+                                            </a></span>
+                        			    </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="level2nd">
+                                        <i class="fa fa-desktop fa-1g"></i>
+                                        UGC平台
+                                    </span>
+		                            <ul>
+                                        <li id="id_ugc_scenario"  url='ugc_scenario'>
+                        				    <span class="level3rd"><a href="">
+                                                <i class="fa fa-institution fa-1g"></i>
+                                                业务概况
+                                            </a></span>
+                        			    </li>
+                                        <li id="id_ugc_express"  url='ugc_express'>
+                        				    <span class="level3rd"><a href="">
+                                                <i class="fa fa-rocket fa-1g"></i>
+                                                直通车
+                                            </a></span>
+                        			    </li>
+                                        <li id="id_ugc_cdn"  url='ugc_cdn'>
+                        				    <span class="level3rd"><a href="">
+                                                <i class="fa fa-download fa-1g"></i>
+                                                下载加速
+                                            </a></span>
+                        			    </li>
+                                        <li id="id_ugc_distribution"  url='ugc_distribution'>
+                                            <span class="level3rd">
+                                                <i class="fa fa-sitemap fa-1g"></i>
+                                                分发
+                                            </span></span>
+                        				    <ul>
+                                                <li id="id_ugc_distribution_upload"  url='ugc_distribution_upload'>
+                                				    <span><a href="">
+                                                        上传分发
+                                                    </a></span>
+                                			    </li>
+                                            </ul>
+                        			    </li>
+                                        <li id="id_ugc_sourcestation"  url='ugc_sourcestation'>
+                        				    <span class="level3rd"><a href="">
+                                                <i class="fa fa-database fa-1g"></i>
+                                                源站
+                                            </a></span>
+                        			    </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="body_right">
+        		<div id='path_nav'> 当前位置： </div>
+        		      <div id="body_right_body">
+                      </div>
+        	    </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function(){
+            if (window.top != window)
+                {
+                    _.InitIframe("192.168.232.128/app");
+                }
+                $.ajaxSetup({cache:false});
+                my_name_is("告警处理");
+                _.InitTree({maxMreq:4,
+                        treeTheme:'classic',
+                        urlPrefix:'',
+                        $c:$('#body_right_body'),
+                        appName:'业务告警',
+                        $nav:$('#path_nav'),
+                        defaultType:'html',
+                        selected:['first_page'],
+                        menusel:'div.menutree',
+            		    noExpandAll:true
+            		});
+                $('#refresh_todo').click(function(){
+                        return false;
+                    });
+            });
+        </script>
+    </body>
+</html>

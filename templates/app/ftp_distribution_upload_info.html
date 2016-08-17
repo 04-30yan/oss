@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>stellar</title>
+        <meta name="description" content="video-on-demmand operation support system">
+        <meta name="natus">
+        {% load staticfiles %}
+        {% include 'include/enable.html' %}
+        <link href="{% static 'css/app/font-awesome.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/app/ftp_distribution_upload_info.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="id_nav">
+                <center><h1>{{ title }}</h1></center>
+                <center>{{ nav | safe }}</center>
+        </div>
+        <div id="id_info">
+            <table id="id_table" class="cell-border" cellspacing="3">
+                {{ table | safe }}
+            </table>
+            {{ script | safe }}
+        </div>
+        <div id="id_charts"></div>
+        <script src="{% static 'js/app/ftp_distribution_upload_info.js' %}"></script>
+        <script type="text/javascript">
+            $('#id_info').css({
+              "margin-left": "0px",
+              "filter": "alpha(opacity=100)",
+              "opacity": "1",
+              "overflow": "hidden",
+              "width": $(window).width(),
+            });
+
+            $('#id_charts').css({
+              "margin-left": "0px",
+              "height": $(window).height(),
+              "filter": "alpha(opacity=100)",
+              "opacity": "1",
+              "overflow": "hidden",
+              "width": $(window).width() / 2,
+            });
+
+            var myChart = echarts.init(document.getElementById('id_charts'));
+
+            var geoCoordMap = {{ geoCoordMap | safe }};
+
+            var priData = {{ priData | safe }};
+            var resData = {{ resData | safe }};
+
+            /*var color = ['#5b5b5b', '#930000', '#d9006c', '#ae00ae', '#6f00d2',
+                '#0000e3', '#0066cc', '#00aeae', '#02c874', '#00bb00',
+                '#82d900', '#a6a600', '#c6a300', '#ea7500', '#d94600',
+                '#ad5a5a', '#a5a552', '#5cadad', '#8080c0', '#ae57a4',
+                '#e0e0e0', '#ff9797', '#ffc1e0', '#ffbfff', '#dcb5ff',
+                '#a6c84c'];*/
+            var color = "#a6c84c";
+            var series = [];
+            var nameList = {{ List | safe }};
+
+            resData.forEach(function (item, i) {
+                series.push(
+                {
+                    name: nameList[i],
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    symbolSize: 5,
+                    itemStyle: {
+                        normal: {
+                            color: color
+                        }
+                    },
+                    data: item[1].map(function (dataItem) {
+                        return {
+                            name: dataItem[1].name,
+                            value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+                        };
+                    })
+                });
+            });
+
+
+            priData.forEach(function (item, i) {
+                series.push(
+                {
+                    name: nameList[i],
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'top',
+                            formatter: '{b}'
+                        }
+                    },
+                    symbolSize: 10,
+                    itemStyle: {
+                        normal: {
+                            color: "#FF0000"
+                        }
+                    },
+                    data: item[1].map(function (dataItem) {
+                        return {
+                            name: dataItem[1].name,
+                            value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+                        };
+                    })
+                });
+            });
+
+            var option = {
+                backgroundColor: '#404a59',
+                title : {
+                    text: '各机组OC分布',
+                    left: 'center',
+                    textStyle : {
+                        color: '#fff'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function (params) {
+                        return "OC名称 : " + params.name + " 权值 : " + params.value[2];
+                    }
+                },
+                legend: {
+                    //orient: 'vertical',
+                    top: 'bottom',
+                    left: 'right',
+                    data: nameList,
+                    textStyle: {
+                        color: '#fff',
+                        fontSize : 8
+                    },
+                    selectedMode: "single",
+                    selected: {
+                        {{ chosenGroup | safe }}
+                    }
+                },
+                geo: {
+                    map: 'china',
+                    label: {
+                        emphasis: {
+                            show: false
+                        }
+                    },
+                    roam: true,
+                    itemStyle: {
+                        normal: {
+                            areaColor: '#323c48',
+                            borderColor: '#404a59'
+                        },
+                        emphasis: {
+                            areaColor: '#2a333d'
+                        }
+                    }
+                },
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: false
+                    }
+                },
+                toolbox: {
+                    show: true,
+                    orient: 'vertical',
+                    left: 'left',
+                    top: 'center',
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                series: series
+            };
+            myChart.setOption(option);
+
+            var ocname2urlMap = {{ ocname2urlMap | safe }};
+            var group2urlMap = {{ group2urlMap | safe }};
+
+            myChart.on ("click", function (params) {
+                if (params.name in geoCoordMap){
+                    var name = params.name;
+                    window.location = ocname2urlMap[name];
+                }
+            });
+
+            myChart.on ("legendselectchanged", function (params) {
+                var name = params.name;
+                window.location = group2urlMap[name];
+            });
+        </script>
+    </body>
+</html>

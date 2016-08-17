@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+       
+        {% include 'include/enable.html' %}
+    </head>
+
+    <body>
+      <div id="main" style="height:500px;border:1px solid #ccc;padding:10px;"></div>
+      <script type="text/javascript">
+          var myChart = echarts.init(document.getElementById('main'));
+          var option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}'
+            },
+            series: [
+                {
+                    name: name,
+                    type: 'map',
+                    mapType: name,
+                    /*selectedMode : 'multiple',*/
+                    label: {
+                        normal: {
+                            show: true
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    data:[]
+                }
+            ]
+        };
+        myChart.setOption (option);
+      </script>
+    </body>
+</html>

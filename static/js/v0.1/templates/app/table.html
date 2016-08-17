@@ -1,0 +1,37 @@
+<table border="1">
+    <thead>
+      <tr>
+        <th>domain</th>
+        <th>file_name</th>
+        <th>file_size</th>
+        <th>create_time</th>
+        <th>start_time</th>
+        <th>success_rate_1st</th>
+        <th>success_time_1nd</th>
+        <th>success_rate_2st</th>
+        <th>success_time_2nd</th>
+        <th>task_id</th>
+        <th>hash_value</th>
+        <th>fail_area</th>
+        <th>fail_errcode</th>
+        <th>fail_oc_id</th>
+        <th>fail_oc_ip</th>
+        <th>errno</th>
+        <th>error</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% if tableLines %}
+            <tr>
+                {% for iLine in tableLines %}
+                    {% for iElement in tableLines%}
+                        <td>
+                            {{ iElement }}
+                        </td>
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+
